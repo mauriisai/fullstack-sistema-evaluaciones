@@ -1,0 +1,52 @@
+<mat-card>
+    <div class="container">
+        <h1 class="title">Actualizar Examen</h1>
+        <mat-card-content class="containerContent">
+            <div>
+                <form *ngIf="examen" (submit)="actualizarCuestionario(examen)">
+                    <mat-form-field appearance="outline" class="largo">
+                        <mat-label>Titulo</mat-label>
+                        <input matInput type="text" name="titulo" id="" placeholder="Digite el titulo del examen"
+                            [(ngModel)]="examen.titulo" autofocus required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="largo">
+                        <mat-label>Descripcion</mat-label>
+                        <textarea matInput type="text" name="descripcion" id=""
+                            placeholder="Digite la descripcion del examen" [(ngModel)]="examen.descripcion" rows="4">
+                        </textarea>
+                    </mat-form-field>
+                <div class="example-container">
+                    <mat-form-field appearance="outline" >
+                        <mat-label>Numero de preguntas</mat-label>
+                        <input matInput type="number" name="numeroDePreguntas" id=""
+                            placeholder="Numero de preguntas" [(ngModel)]="examen.numeroDePreguntas" required> 
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" >
+                        <mat-label>Puntos Maximos</mat-label>
+                        <input matInput type="number" name="puntosMaximos" id="" placeholder="Puntos maximos"
+                        [(ngModel)]="examen.puntosMaximos" required>
+                    </mat-form-field>
+                </div>
+
+                <div class="separar-fields">
+                <mat-form-field appearance="outline" style="width: 20em;">
+                    <mat-label>Categorias</mat-label>
+                    <mat-select name="categoria" [(ngModel)]="examen.categoria.categoriaId">
+                      <mat-option *ngFor="let c of categorias" [value]="c.categoriaId">
+                        {{c.titulo}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-slide-toggle name="activo" [(ngModel)]="examen.activo" color="primary">
+                    Estado de Publicacion
+                </mat-slide-toggle>
+                </div>
+                    <div class="container2">
+                        <button mat-raised-button color="primary">Actualizar Cuestionario</button>
+                    </div>
+                </form>
+            </div>
+
+        </mat-card-content>
+    </div>
+</mat-card>

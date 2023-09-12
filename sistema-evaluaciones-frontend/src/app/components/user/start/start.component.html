@@ -1,0 +1,86 @@
+<div fxLayout="row" fxLayoutGap="20px" *ngIf="!esEnviado">
+    <div fxFlex="75%">
+        <mat-card>
+            <div class="container">
+                <h1><b> Test - {{ preguntas[0].examen.titulo }} </b></h1>
+                <h2>Preguntas</h2>
+            </div>
+            <mat-card-content *ngFor="let p of preguntas; let i = index">
+                <mat-divider></mat-divider>
+                <br>
+                <p>
+                    <b>{{ i +1 }} )
+                        <span class="container" [innerHTML]="p.contenido"></span>
+                    </b>
+                </p>
+
+                <div class="fila">
+                    <mat-radio-group [(ngModel)]="p.seleccion">
+                        <div class="example-container">
+                            <mat-radio-button name={{i}} [value]="p.opcion1">{{ p.opcion1 }}
+                            </mat-radio-button>
+                            <mat-radio-button name={{i}} [value]="p.opcion2">{{ p.opcion2 }}
+                            </mat-radio-button>
+                        </div>
+                        <div class="example-container">
+                            <mat-radio-button name={{i}} [value]="p.opcion3">{{ p.opcion3 }}
+                            </mat-radio-button>
+                            <mat-radio-button name={{i}} [value]="p.opcion4">{{ p.opcion4 }}
+                            </mat-radio-button>
+                        </div>
+                        <!-- Verificar respuestas correctas del test 
+                        <div>Respuesta: {{p.respuesta}}</div> -->
+                    </mat-radio-group>
+                </div>
+            </mat-card-content>
+
+            <mat-divider></mat-divider>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" class="container" (click)="enviarCuestionario()">
+                    Terminar Cuestionario</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <!-- Creacion del Progress Spinner -->
+    <div fxFlex="22%">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title class="container">
+                    Progreso
+                </mat-card-title>
+                <mat-card-subtitle>
+                    El cuestionario se enviara automaticamente cuando el temporizador llegue a <b>00 : 00</b>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <br>
+            <mat-card-content>
+                <br><br>
+                <mat-spinner mode="determinate" color="accent" style="margin: auto;" 
+                    [value]="(timer/(this.preguntas.length * 2*60)*100)"></mat-spinner>
+                    <br>
+                <h1 class="text-center"> {{ obtenerHoraFormateada() }}</h1>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div fxLayout="row" fxLayoutGap="20px" *ngIf="esEnviado">
+    <div fxFlex="50%" >
+        <mat-card class="body">
+            <mat-card-header>
+                <h1><b>Resultado de la prueba</b></h1>
+            </mat-card-header>
+            <mat-card-content>
+                <h2>Puntos Conseguidos: {{ puntosConseguidos }} / {{ preguntas[0].examen.puntosMaximos }}</h2>
+                <h2>Respuestas Correctas: {{ respuestasCorrectas }}</h2>
+                <h2>Nota Final: {{ notaFinal }}</h2>
+                
+            </mat-card-content>
+            
+            <mat-card-actions class="container text-center">
+                <button mat-raised-button style="background-color: rgb(150, 43, 179);"
+                    routerLink="/user-dashboard/0">Ir a Inicio</button>
+                <button mat-raised-button class="boton" (click)="imprimirPagina()" color="primary">Imprimir</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

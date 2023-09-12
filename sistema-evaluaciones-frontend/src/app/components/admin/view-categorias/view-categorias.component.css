@@ -1,0 +1,13 @@
+
+.container2{
+    margin-left: 8em;
+    margin-bottom: 1.5em;
+}
+
+mat-card{
+    background-color: rgb(53, 116, 157);
+}
+
+.mat-mdc-list-item-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }

@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <button routerLink="/" mat-icon-button class="example-icon" aria-label="Example with menu icon">
+    <mat-icon>home</mat-icon>
+  </button>
+  <span class="example-spacer" routerLink="/">Portal de Evaluaciones</span>
+  <span *ngIf="!login.isLoggedIn()" routerLink="/login" style="cursor: pointer;">Iniciar Sesion</span>
+  <span *ngIf="login.isLoggedIn()" >Bienvenid@: {{login.getUser().username }}</span>
+  <a (click)="logout()">
+    <span *ngIf="login.isLoggedIn()" style="cursor: pointer;">Cerrar Sesion</span>
+  </a>
+  <span *ngIf="!login.isLoggedIn()" routerLink="/signup" style="cursor: pointer;">Registrarme</span>
+  
+</mat-toolbar>

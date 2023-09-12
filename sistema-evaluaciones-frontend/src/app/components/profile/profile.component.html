@@ -1,0 +1,41 @@
+<mat-card>
+    <div class="container">
+        <h1 class="title">Detalles del Perfil</h1>
+    </div>
+    <mat-card-content class="containerContent">
+            
+    <div class="container">
+    <img src="../../../assets/user.png" style="width: 100px;">
+
+        <h1>{{ user.nombre}} {{ user.apellido }}</h1>
+    </div>
+            <table class="table ">
+                <tr>
+                    <td>Nombre de Usuario</td>
+                    <td>{{ user.username}}</td>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td>{{ user.id}}</td>
+                </tr>
+                <tr>
+                    <td>Telefono</td>
+                    <td>{{ user.telefono}}</td>
+                </tr>
+                <tr>
+                    <td>Rol</td>
+                    <td>{{ user.authorities[0].authority}}</td>
+                </tr>
+                <tr>
+                    <td>Estado</td>
+                    <td>{{ user.enabled? "Activo": "Inactivo"}}</td>
+                </tr>
+            </table>
+
+            <br>
+            <button class="boton" mat-raised-button color="primary">Actualizar</button>
+            <button class="boton" style="background-color: rgb(150, 43, 179);" mat-raised-button>
+                Compartir</button>
+        </mat-card-content>
+        
+</mat-card>

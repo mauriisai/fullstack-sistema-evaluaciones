@@ -1,0 +1,8 @@
+mat-card{
+    background-color: rgb(53, 116, 157);
+}
+
+.header-image{
+    background-image: url("../../../../assets/test.png");
+    background-size: cover;
+}

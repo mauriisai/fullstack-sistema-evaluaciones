@@ -1,0 +1,12 @@
+mat-card{
+    background-color: rgb(53, 116, 157);
+}
+
+.example-container div {
+    margin-left: 6em;
+}
+
+.row{
+    display: flex;
+    height: 100%;
+}

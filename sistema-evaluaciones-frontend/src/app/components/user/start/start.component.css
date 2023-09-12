@@ -1,0 +1,14 @@
+mat-card{
+    background-color: rgb(53, 116, 157);
+}
+
+.example-container mat-radio-button {
+    margin-bottom: 1.5em;
+    font-size: 1.2em;
+    margin-left: 6em;
+}
+
+.fila{
+    display: flex;
+    height: 100%;
+}

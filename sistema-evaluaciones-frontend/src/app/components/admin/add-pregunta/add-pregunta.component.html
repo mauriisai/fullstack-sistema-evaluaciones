@@ -1,0 +1,59 @@
+<mat-card>
+    <div class="container">
+        <h1 class="title">Agregar pregunta a <span style="font-weight: bold;">{{ titulo }}</span></h1>
+        {{ pregunta | json }}
+        <mat-card-content class="containerContent">
+            <div>
+                <form (submit)="almacenarPregunta()">
+
+                    <mat-form-field appearance="outline" class="largo">
+                        <mat-label>Digite la pregunta</mat-label>
+                        <textarea matInput type="text" name="contenido" id="" [(ngModel)]="pregunta.contenido"
+                            placeholder="Verifique que su pregunta contenga claridad" rows="3">
+                        </textarea>
+                    </mat-form-field>
+                    <div class="example-container">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Digite la Opcion 1</mat-label>
+                            <input matInput type="text" name="opcion1" id="" [(ngModel)]="pregunta.opcion1" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Digite la opcion 2</mat-label>
+                            <input matInput type="text" name="opcion2" id="" [(ngModel)]="pregunta.opcion2" id="" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="example-container">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Digite la Opcion 3</mat-label>
+                            <input matInput type="text" name="opcion3" id="" [(ngModel)]="pregunta.opcion3" id="" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Digite la opcion 4</mat-label>
+                            <input matInput type="text" name="opcion4" id="" [(ngModel)]="pregunta.opcion4" id="" required>
+                        </mat-form-field>
+                    </div>
+                    <mat-form-field appearance="outline" style="width: 30em;">
+                        <mat-label>Seleccione la respuesta</mat-label>
+                        <mat-select name="respuesta" id="" [(ngModel)]="pregunta.respuesta">
+                            <mat-option *ngIf="pregunta.opcion1" [value]="pregunta.opcion1">
+                                {{pregunta.opcion1}}
+                            </mat-option>
+                            <mat-option *ngIf="pregunta.opcion2" [value]="pregunta.opcion2">
+                                {{pregunta.opcion2}}
+                            </mat-option>
+                            <mat-option *ngIf="pregunta.opcion3" [value]="pregunta.opcion3">
+                                {{pregunta.opcion3}}
+                            </mat-option>
+                            <mat-option *ngIf="pregunta.opcion4" [value]="pregunta.opcion4">
+                                {{pregunta.opcion4}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="container2">
+                        <button mat-raised-button color="primary">Almacenar pregunta</button>
+                    </div>
+                </form>
+            </div>
+        </mat-card-content>
+    </div>
+</mat-card>

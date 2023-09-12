@@ -1,0 +1,8 @@
+mat-card{
+    background-color: rgb(53, 116, 157);
+}
+
+.example-container mat-form-field + mat-form-field {
+    
+    margin-left: 4em;
+}

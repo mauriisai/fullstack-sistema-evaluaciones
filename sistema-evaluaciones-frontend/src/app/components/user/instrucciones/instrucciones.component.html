@@ -1,0 +1,40 @@
+<mat-card>
+    <div mat-subheader>
+        Bienvenid@ a la Prueba
+    </div>
+    <mat-card-header>
+        <mat-card-title>{{ examen.titulo }} </mat-card-title>
+        <mat-card-subtitle>{{ examen.descripcion }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <div class="container">
+        <mat-card-content>
+            <h1>Instrucciones</h1>
+            <mat-divider></mat-divider>
+            <ul>
+                <li>Este cuestionario es para fines practicos</li>
+                <li>Tu tiempo para completar el cuestionario es: <b>{{examen.numeroDePreguntas *2 }} minutos.</b></li>
+                <li>Puede resolver el cuestionario cualquier cantidad de veces</li>
+                <li>Cada pregunta equivale a <b>{{examen.puntosMaximos / examen.numeroDePreguntas}} puntos.</b></li>
+            </ul>
+            <mat-divider></mat-divider>
+            <br>
+            <h1>Intentos de la Prueba</h1>
+            <ul>
+                <li>Presione el boton <b>Iniciar</b> para comenzar el examen</li>
+                <li>El tiempo empezara a contar en el momento que haga clic en el boton <b>Iniciar</b></li>
+                <li>No puede reanudar este cuestionario si se interrumpe por algun motivo</li>
+                <li>Desplacese hacia abajo para pasar a la siguiente pregunta</li>
+                <li>Haga clic en el boton <b>Enviar Cuestionario</b> para finalizar la prueba</li>
+                <li>El informe de la prueba se genera automaticamente en forma de PDF</li>
+            </ul>
+        </mat-card-content>
+        <br>
+        <mat-card-actions>
+            <div class="container2">
+                <button mat-flat-button class="boton" color="primary"
+                    (click)="empezarExamen()" >Iniciar</button>
+            </div>
+        </mat-card-actions>
+    </div>
+</mat-card>

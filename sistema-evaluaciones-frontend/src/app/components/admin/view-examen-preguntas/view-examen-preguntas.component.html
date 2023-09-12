@@ -1,0 +1,57 @@
+<mat-card>
+    <div class="container">
+        <h1>Preguntas de {{titulo}}</h1>
+
+        <button mat-raised-button color="warn" [routerLink]="'/admin/add-pregunta/'+examenId+'/'+titulo">
+            Agregar Pregunta
+        </button>
+
+    </div>
+    <br> <mat-card-content *ngFor="let p of preguntas; let i = index">
+        
+        <mat-divider></mat-divider>
+        <br>
+        <p>
+            <b>{{ i +1 }} )</b>
+            <span class="container" [innerHTML]="p.contenido"></span>
+        </p>
+        <div class="row">
+            <div class="example-container">
+                
+                <div>
+                    <p>1). <b>{{ p.opcion1 }}</b>
+                    </p>
+                </div>
+                <div>
+                    <p>2). <b>{{ p.opcion2 }}</b>
+                    </p>
+                </div>
+            </div>
+            <div class="example-container">
+
+                <div>
+                    <p>3). <b>{{ p.opcion3 }}</b>
+                    </p>
+                </div>
+                <div>
+                    <p>4). <b>{{ p.opcion4 }}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <p>Respuesta Correcta: <b>{{ p.respuesta }}</b>
+            </p>
+        </div>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" [routerLink]="'/admin/pregunta/'+p.preguntaId" class="boton">
+                Actualizar</button>
+            <button mat-raised-button color="warn" class="boton" (click)="eliminarPregunta(p.preguntaId)">
+                Eliminar</button>
+        </mat-card-actions>
+        <mat-divider></mat-divider>
+        <br>
+    </mat-card-content>
+
+</mat-card>

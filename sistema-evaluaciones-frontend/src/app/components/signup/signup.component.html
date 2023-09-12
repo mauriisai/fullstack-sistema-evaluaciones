@@ -1,0 +1,47 @@
+<div class="body">
+    <div>
+        <img src="../../../assets/addUser.png" width="300" height="300">
+    </div>
+
+    <form (ngSubmit)="registrarUsuario()" class="forma">
+        <h1>INGRESA TUS DATOS</h1>
+        <mat-form-field class="ancho">
+            <mat-label>Usuario</mat-label>
+            <input name="username" [(ngModel)]="user.username" matInput autocomplete="off"
+                placeholder="Digite su usuario" required>
+        </mat-form-field>
+        <mat-form-field class="ancho">
+            <mat-label>Clave</mat-label>
+            <input name="password" [(ngModel)]="user.password" matInput type="password" autocomplete="off"
+                placeholder="Digite su clave" required>
+        </mat-form-field>
+
+        <mat-form-field class="ancho">
+            <mat-label>Nombre</mat-label>
+            <input matInput name="nombre" [(ngModel)]="user.nombre" autocomplete="off" 
+                placeholder="Digite su nombre" required>
+        </mat-form-field>
+        <mat-form-field class="ancho">
+            <mat-label>Apellido</mat-label>
+            <input matInput name="apellido" [(ngModel)]="user.apellido" autocomplete="off"
+                placeholder="Digite su apellido">
+        </mat-form-field>
+
+        <mat-form-field class="ancho">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" [(ngModel)]="user.email" autocomplete="off"
+                placeholder="Digite su email" required>
+        </mat-form-field>
+        <mat-form-field class="ancho">
+            <mat-label>Telefono</mat-label>
+            <input matInput type="number" name="telefono" [(ngModel)]="user.telefono" autocomplete="off"
+                placeholder="Digite su telefono">
+        </mat-form-field>
+        <div>
+            <button class="boton" mat-raised-button color="primary">Registrar</button>
+            <button class="boton" type="reset" style="background-color: rgb(150, 43, 179);" mat-raised-button>
+                Limpiar</button>
+        </div>
+    </form>
+
+</div>

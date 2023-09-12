@@ -1,0 +1,15 @@
+
+.table{
+    width: 40%;
+    border-collapse: collapse;
+}
+
+tr td{
+    padding: 10px 10px;
+    border: 3px rgb(37, 14, 84) solid;
+    font-size: 16px;
+}
+
+mat-card{
+    background-color: rgb(53, 116, 157);
+}
